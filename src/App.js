@@ -1,5 +1,4 @@
 import React from "react";
-//import Loading from "./components/Loading";
 import Country from "./components/Country";
 import axios from "axios";
 
