@@ -11,7 +11,14 @@ export default class App extends React.Component {
     };
   }
 
-  componentDidMount(e) {
+  changeHandler = (e) => {
+    this.setState({
+      userInput: e.target.value.trim(),
+    });
+  };
+
+  submitHandler = (e) => {
+    e.preventDefault();
     let textToUrl = encodeURIComponent(this.state.userInput);
     fetch(`https://restcountries.eu/rest/v2/name/${textToUrl}`)
       .then((res) => res.json())
@@ -35,16 +42,6 @@ export default class App extends React.Component {
         loading: false,
       });
     }, 2000);
-  }
-
-  changeHandler = (e) => {
-    this.setState({
-      userInput: e.target.value.trim(),
-    });
-  };
-
-  submitHandler = (e) => {
-    e.preventDefault();
   };
 
   render() {
@@ -55,6 +52,7 @@ export default class App extends React.Component {
           <form onSubmit={this.submitHandler}>
             <input
               type="text"
+              value={this.state.userInput}
               onChange={this.changeHandler}
               placeholder="Write a country name"
             />
