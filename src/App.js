@@ -7,27 +7,31 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       userInput: "",
+      countriesData: [
+        {
+          capitals: "",
+          populations: "",
+          languages: "",
+          currencies: "",
+        },
+      ],
     };
     this.init = (countriesData) => {
       this.setState({
         countriesData,
       });
     };
-    let result = this.state.countriesData.map((item) => {
+    this.result = this.state.countriesData.map((item) => {
       return (
         <div>
           <h3>
-            Country: {`${this.state.name} `}
-            <img
-              src={this.state.flags}
-              alt={this.state.userInput}
-              width="30px"
-            />
+            Country: {`${item.name} `}
+            <img src={item.flags} alt={item.name} width="30px" />
           </h3>
-          <p>Capital: {this.state.capitals}</p>
-          <p>Population: {this.state.populations}</p>
-          <p>Language: {this.state.languages}</p>
-          <p>Currency: {this.state.currencies}</p>
+          <p>Capital: {item.capitals}</p>
+          <p>Population: {item.populations}</p>
+          <p>Language: {item.languages}</p>
+          <p>Currency: {item.currencies}</p>
         </div>
       );
     });
