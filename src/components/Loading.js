@@ -1,10 +1,10 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { FontAwesomeIcon } from "@fontawesome/react-fontawesome";
 
 function Spinner() {
   return (
     <div className="loading">
-      <FontAwesomeIcon icon="spinner" className="icon" spin />
+      {/* <FontAwesomeIcon icon="spinner" className="icon" spin /> */}
     </div>
   );
 }
