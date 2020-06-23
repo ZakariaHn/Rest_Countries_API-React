@@ -22,4 +22,4 @@ Builds the app for production to the `build` folder.<br />
 
 
 
-### PS: another solution using axios is provided on the branck 'axios'
+### PS: another solution using axios is provided on the branch `axios`
