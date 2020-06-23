@@ -5,15 +5,15 @@ const Country = (props) => {
 
     return (
       <React.Fragment key={i}>
-        <h2>
+        <h3>
           {item.name}{" "}
           <img src={item.flag} alt={item.name} width="30px" key={i} />
-        </h2>
+        </h3>
 
         <p> Capital: {item.capital}</p>
         <p> Language: {item.languages[0].name}</p>
-        <p>Population: {item.population}</p>
         <p> Currency: {item.currencies[0].code}</p>
+        <p> Population: {item.population}</p>
       </React.Fragment>
     );
   });

@@ -1,5 +1,4 @@
 import React from "react";
-//import Loading from "./components/Loading";
 import Country from "./components/Country";
 
 export default class App extends React.Component {
@@ -7,7 +6,7 @@ export default class App extends React.Component {
     super(props);
 
     this.state = {
-      userInput: "germany",
+      userInput: "",
       countriesData: [],
       loading: true,
     };
@@ -44,7 +43,7 @@ export default class App extends React.Component {
               onChange={this.changeHandler}
               placeholder="Write a country name"
             />
-            <button type="submit">Search</button>
+            <button type="submit"></button>
           </form>
         </div>
         <Country data={this.state.countriesData} />
