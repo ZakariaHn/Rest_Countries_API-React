@@ -1,9 +1,12 @@
 {
   "name": "react-project-temp",
   "version": "1.0.0",
+  "homepage": "https://zakariahn.github.io/Rest_Countries_API-React/",
   "description": "project template",
   "main": "index.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "publish": "gh-pages -d dist"
