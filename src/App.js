@@ -7,13 +7,12 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       userInput: "",
-      fullPath: "",
       loading: true,
     };
   }
 
-  componentDidMount() {
-    fetch("https://restcountries.eu/rest/v2/all")
+  componentDidMount(e) {
+    fetch(`https://restcountries.eu/rest/v2/name/${this.state.userInput}`)
       .then((res) => res.json())
       .then((data) => init(data))
       .catch((err) => console.log(err));
@@ -21,7 +20,6 @@ export default class App extends React.Component {
     const init = (countriesData) => {
       countriesData.map((i) => {
         return this.setState({
-          countries: i.name,
           capitals: i.capital,
           languages: i.languages[0].iso639_1,
           populations: i.population,
@@ -63,7 +61,7 @@ export default class App extends React.Component {
           </form>
 
           <h3>
-            Country: {`${this.state.countries} `}
+            Country: {`${this.state.userInput} `}
             <img
               src={this.state.flags}
               alt={this.state.countries}
