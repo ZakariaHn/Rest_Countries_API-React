@@ -7,7 +7,33 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       userInput: "",
-      loading: true,
+    };
+    this.init = (countriesData) => {
+      countriesData.map((item) => {
+        this.setState({
+          capitals: item.capital,
+          languages: item.languages[0].iso639_1,
+          populations: item.population,
+          currencies: item.currencies[0].name,
+          flags: item.flag,
+        });
+        return (
+          <div>
+            <h3>
+              Country: {`${this.state.name} `}
+              <img
+                src={this.state.flags}
+                alt={this.state.userInput}
+                width="30px"
+              />
+            </h3>
+            <p>Capital: {this.state.capitals}</p>
+            <p>Population: {this.state.populations}</p>
+            <p>Language: {this.state.languages}</p>
+            <p>Currency: {this.state.currencies}</p>
+          </div>
+        );
+      });
     };
   }
 
@@ -22,36 +48,8 @@ export default class App extends React.Component {
     let textToUrl = encodeURIComponent(this.state.userInput);
     fetch(`https://restcountries.eu/rest/v2/name/${textToUrl}`)
       .then((res) => res.json())
-      .then((data) => init(data))
-      .catch((err) => console.log(err));
-
-    const init = (countriesData) => {
-      countriesData.map((item) => {
-        this.setState({
-          capitals: item.capital,
-          languages: item.languages[0].iso639_1,
-          populations: item.population,
-          currencies: item.currencies[0].name,
-          flags: item.flag,
-        });
-        return (
-          <div>
-            <h3>
-              Country: {`${this.state.userInput} `}
-              <img
-                src={this.state.flags}
-                alt={this.state.countries}
-                width="30px"
-              />
-            </h3>
-            <p>Capital: {this.state.capitals}</p>
-            <p>population: {this.state.populations}</p>
-            <p>language: {this.state.languages}</p>
-            <p>currency: {this.state.currencies}</p>
-          </div>
-        );
-      });
-    };
+      .then((data) => this.init(data))
+      .catch((err) => alert(err));
   };
 
   render() {
@@ -68,7 +66,7 @@ export default class App extends React.Component {
             <button type="submit">Search</button>
           </form>
         </div>
-        <ul></ul>
+
         {/* <Country data={this.state.props} /> */}
       </React.Fragment>
     );
