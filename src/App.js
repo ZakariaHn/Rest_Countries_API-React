@@ -9,32 +9,28 @@ export default class App extends React.Component {
       userInput: "",
     };
     this.init = (countriesData) => {
-      countriesData.map((item) => {
-        this.setState({
-          capitals: item.capital,
-          languages: item.languages[0].iso639_1,
-          populations: item.population,
-          currencies: item.currencies[0].name,
-          flags: item.flag,
-        });
-        return (
-          <div>
-            <h3>
-              Country: {`${this.state.name} `}
-              <img
-                src={this.state.flags}
-                alt={this.state.userInput}
-                width="30px"
-              />
-            </h3>
-            <p>Capital: {this.state.capitals}</p>
-            <p>Population: {this.state.populations}</p>
-            <p>Language: {this.state.languages}</p>
-            <p>Currency: {this.state.currencies}</p>
-          </div>
-        );
+      this.setState({
+        countriesData,
       });
     };
+    let result = this.state.countriesData.map((item) => {
+      return (
+        <div>
+          <h3>
+            Country: {`${this.state.name} `}
+            <img
+              src={this.state.flags}
+              alt={this.state.userInput}
+              width="30px"
+            />
+          </h3>
+          <p>Capital: {this.state.capitals}</p>
+          <p>Population: {this.state.populations}</p>
+          <p>Language: {this.state.languages}</p>
+          <p>Currency: {this.state.currencies}</p>
+        </div>
+      );
+    });
   }
 
   changeHandler = (e) => {
@@ -66,9 +62,35 @@ export default class App extends React.Component {
             <button type="submit">Search</button>
           </form>
         </div>
-
+        <ul>{this.result}</ul>
         {/* <Country data={this.state.props} /> */}
       </React.Fragment>
     );
   }
 }
+
+// countriesData.map((item) => {
+//   this.setState({
+//     capitals: item.capital,
+//     languages: item.languages[0].iso639_1,
+//     populations: item.population,
+//     currencies: item.currencies[0].name,
+//     flags: item.flag,
+//   });
+//   return (
+//     <div>
+//       <h3>
+//         Country: {`${this.state.name} `}
+//         <img
+//           src={this.state.flags}
+//           alt={this.state.userInput}
+//           width="30px"
+//         />
+//       </h3>
+//       <p>Capital: {this.state.capitals}</p>
+//       <p>Population: {this.state.populations}</p>
+//       <p>Language: {this.state.languages}</p>
+//       <p>Currency: {this.state.currencies}</p>
+//     </div>
+//   );
+// });
