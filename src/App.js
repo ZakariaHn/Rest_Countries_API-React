@@ -5,13 +5,13 @@ import Country from "./components/Country";
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      userInput: "germany",
+      userInput: "",
       countriesData: [],
       loading: true,
     };
   }
+
   changeHandler = (e) => {
     this.setState({
       userInput: e.target.value.trim(),
@@ -22,7 +22,6 @@ export default class App extends React.Component {
     this.setState({
       countriesData,
     });
-    console.log(countriesData);
   };
 
   submitHandler = (e) => {
@@ -33,6 +32,7 @@ export default class App extends React.Component {
       .then((data) => this.newSearch(data))
       .catch((err) => console.error(err));
   };
+
   render() {
     return (
       <React.Fragment>
