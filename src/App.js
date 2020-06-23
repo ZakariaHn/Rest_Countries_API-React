@@ -17,16 +17,12 @@ export default class App extends React.Component {
       ],
     };
     this.init = (countriesData) => {
-      console.log(countriesData);
-
       this.setState({
         countriesData,
       });
     };
 
     this.result = this.state.countriesData.map((item, i) => {
-      console.log(item);
-
       return (
         <div key={i}>
           <h3>
@@ -77,29 +73,3 @@ export default class App extends React.Component {
     );
   }
 }
-
-// countriesData.map((item) => {
-//   this.setState({
-//     capitals: item.capital,
-//     languages: item.languages[0].iso639_1,
-//     populations: item.population,
-//     currencies: item.currencies[0].name,
-//     flags: item.flag,
-//   });
-//   return (
-//     <div>
-//       <h3>
-//         Country: {`${this.state.name} `}
-//         <img
-//           src={this.state.flags}
-//           alt={this.state.userInput}
-//           width="30px"
-//         />
-//       </h3>
-//       <p>Capital: {this.state.capitals}</p>
-//       <p>Population: {this.state.populations}</p>
-//       <p>Language: {this.state.languages}</p>
-//       <p>Currency: {this.state.currencies}</p>
-//     </div>
-//   );
-// });
