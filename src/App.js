@@ -12,7 +12,8 @@ export default class App extends React.Component {
   }
 
   componentDidMount(e) {
-    fetch(`https://restcountries.eu/rest/v2/name/${this.state.userInput}`)
+    let textToUrl = encodeURIComponent(this.state.userInput);
+    fetch(`https://restcountries.eu/rest/v2/name/${textToUrl}`)
       .then((res) => res.json())
       .then((data) => init(data))
       .catch((err) => console.log(err));
