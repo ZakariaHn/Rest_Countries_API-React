@@ -68,7 +68,7 @@ export default class App extends React.Component {
             <button type="submit">Search</button>
           </form>
         </div>
-        <ul>{this.init}</ul>
+        <ul></ul>
         {/* <Country data={this.state.props} /> */}
       </React.Fragment>
     );
