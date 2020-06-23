@@ -1,6 +1,7 @@
 import React from "react";
 //import Loading from "./components/Loading";
 import Country from "./components/Country";
+import axios from "axios";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -18,19 +19,14 @@ export default class App extends React.Component {
     });
   };
 
-  newSearch = (countriesData) => {
-    this.setState({
-      countriesData,
-    });
-  };
-
   submitHandler = (e) => {
     e.preventDefault();
-    let textToUrl = encodeURIComponent(this.state.userInput);
-    fetch(`https://restcountries.eu/rest/v2/name/${textToUrl}`)
-      .then((res) => res.json())
-      .then((data) => this.newSearch(data))
-      .catch((err) => console.error(err));
+    axios
+      .get(`https://restcountries.eu/rest/v2/name/${this.state.userInput}`)
+      .then((res) => {
+        const countriesData = res.data;
+        this.setState({ countriesData });
+      });
   };
 
   render() {

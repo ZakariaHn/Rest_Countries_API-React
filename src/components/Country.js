@@ -1,4 +1,5 @@
 import React from "react";
+
 const Country = (props) => {
   const result = props.data.map((item, i) => {
     console.log(item);
