@@ -2,7 +2,7 @@
 
 This is a template for [react](https://reactjs.org/) project with  [sass](https://sass-lang.com/),[Bootstrap](https://getbootstrap.com/) and [npm GitHub-pages](https://www.npmjs.com/package/gh-pages) add to it
 
-clone this repo and then you can do
+clone this repo and:
 
 ### `npm install`
 
