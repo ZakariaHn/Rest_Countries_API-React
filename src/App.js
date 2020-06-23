@@ -17,13 +17,18 @@ export default class App extends React.Component {
       ],
     };
     this.init = (countriesData) => {
+      console.log(countriesData);
+
       this.setState({
         countriesData,
       });
     };
-    this.result = this.state.countriesData.map((item) => {
+
+    this.result = this.state.countriesData.map((item, i) => {
+      console.log(item);
+
       return (
-        <div>
+        <div key={i}>
           <h3>
             Country: {`${item.name} `}
             <img src={item.flags} alt={item.name} width="30px" />
@@ -66,7 +71,7 @@ export default class App extends React.Component {
             <button type="submit">Search</button>
           </form>
         </div>
-        <ul>{this.result}</ul>
+        <div>{this.result}</div>
         {/* <Country data={this.state.props} /> */}
       </React.Fragment>
     );
