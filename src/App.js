@@ -6,7 +6,7 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userInput: "",
+      userInput: "Germany",
       loading: true,
     };
   }
@@ -26,26 +26,19 @@ export default class App extends React.Component {
       .catch((err) => console.log(err));
 
     const init = (countriesData) => {
-      countriesData.map((i) => {
-        return this.setState({
-          capitals: i.capital,
-          languages: i.languages[0].iso639_1,
-          populations: i.population,
-          currencies: i.currencies[0].name,
-          flags: i.flag,
+      countriesData.map((item) => {
+        this.setState({
+          capitals: item.capital,
+          languages: item.languages[0].iso639_1,
+          populations: item.population,
+          currencies: item.currencies[0].name,
+          flags: item.flag,
         });
       });
     };
-
-    setTimeout(() => {
-      this.setState({
-        loading: false,
-      });
-    }, 2000);
   };
 
   render() {
-    if (this.state.loading) return <Loading />;
     return (
       <React.Fragment>
         <div>
@@ -58,7 +51,8 @@ export default class App extends React.Component {
             />
             <button type="submit">Search</button>
           </form>
-
+        </div>
+        <div>
           <h3>
             Country: {`${this.state.userInput} `}
             <img
