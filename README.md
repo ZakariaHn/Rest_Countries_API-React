@@ -1,6 +1,5 @@
 ## ReactJs Project template 
 
-This is a template for [react](https://reactjs.org/) project with  [sass](https://sass-lang.com/),[Bootstrap](https://getbootstrap.com/) and [npm GitHub-pages](https://www.npmjs.com/package/gh-pages) add to it
 
 clone this repo and:
 
@@ -20,3 +19,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 Builds the app for production to the `build` folder.<br />
 
+
+
+### PS: another solution using [axios](https://github.com/axios/axios) is provided on the branch `axios`
